@@ -1,60 +1,64 @@
-# City Tempreture Analysis Streamlit
+# City Temperature Analysis Streamlit (file content is currently in Russian)
 
-## Описание
+## Description
 
-Решение для анализа исторических температурных данных и мониторинга текущей температуры в выбранных городах с использованием OpenWeatherMap API. Проект включает проведение простого анализа временных рядов, выявление аномалий, создание сезонных профилей и разработку интерактивного веб-приложения.
+A solution for analyzing historical temperature data and monitoring the current temperature in selected cities using the OpenWeatherMap API. The project includes basic time series analysis, anomaly detection, seasonal profiling, and the development of an interactive web application.
 
-### Доступ
+### Access
 
-Приложение доступно по ссылке https://city-temp-analysis-service.streamlit.app/.
+The application is available at https://city-temp-analysis-service.streamlit.app/.
 
-## Выполненные задачи
+## Completed Tasks
 
-### 1. Анализ временных рядов исторических данных:
-- Вычислено скользящее среднее с окном в 30 дней для сглаживания температурных колебаний.
-- Рассчитаны средние значения температуры и стандартное отклонение для каждого сезона в каждом городе.
-- Определены аномалии температуры, которые выходят за пределы диапазона:  
-  $$ \text{скользящее среднее} \pm 2\sigma $$
-- Построены долгосрочные тренды изменения температуры с использованием линейной регрессии.
-- Исследована эффективность параллельной обработки данных:
-  - Сравнена скорость выполнения анализа данных при последовательной и параллельной обработке с использованием `multiprocessing` и `concurrent.futures`.
+### 1. Analysis of Historical Time Series Data:
+- Calculated 30-day moving average to smooth out temperature fluctuations.
+- Computed seasonal mean temperature and standard deviation for each city.
+- Identified temperature anomalies that fall outside the range:  
+  $$ \text{moving average} \pm 2\sigma $$
+- Built long-term temperature trends using linear regression.
+- Explored the efficiency of parallel data processing:
+  - Compared execution time of sequential vs parallel processing using `multiprocessing` and `concurrent.futures`.
 
-### 2. Мониторинг текущей температуры через OpenWeatherMap API:
-- Интеграция с OpenWeatherMap API для получения текущей температуры в выбранных городах.
-- Реализована проверка, является ли текущая температура нормальной для текущего сезона на основе исторических данных.
-- Сравнены подходы синхронного и асинхронного выполнения запросов к API для оптимизации времени отклика.
+### 2. Monitoring Current Temperature via OpenWeatherMap API:
+- Integrated with OpenWeatherMap API to fetch current temperature for selected cities.
+- Implemented a check to determine whether the current temperature is within the normal range for the current season based on historical data.
+- Compared synchronous and asynchronous API requests to optimize response time.
 
-### 3. Разработка интерактивного веб-приложения:
-- Реализовано приложение на Streamlit, предоставляющее пользователю следующие возможности:
-  - Загрузка файла с историческими данными в формате CSV.
-  - Выбор города из выпадающего списка для анализа.
-  - Отображение описательной статистики по историческим данным, включая средние, минимальные и максимальные значения температуры.
-  - Построение временного ряда с выделением аномалий (точками другого цвета).
-  - Визуализация сезонных профилей с указанием среднего значения и стандартного отклонения.
-- Подключена форма для ввода API-ключа OpenWeatherMap. Реализована проверка валидности ключа с выводом сообщений об ошибках в формате JSON.
-- Реализован вывод текущей температуры и её сравнение с историческим нормальным диапазоном.
+### 3. Development of an Interactive Web Application:
+- Built a Streamlit-based application providing the following features:
+  - Upload a CSV file with historical temperature data.
+  - Select a city from a dropdown list for analysis.
+  - Display descriptive statistics for the selected city (mean, min, max temperature).
+  - Plot a time series with moving average and highlight anomalies (optional toggle).
+  - Visualize seasonal profiles with mean and standard deviation per season.
+- Included a form for entering the OpenWeatherMap API key, with validation and JSON error message display if the key is invalid.
+- Displayed current temperature with comparison to the historical seasonal range.
 
-## Используемые данные
-Исторические данные о температуре содержались в файле `temperature_data.csv`, включающем следующие столбцы:
-- `city`: Название города.
-- `timestamp`: Дата в формате `YYYY-MM-DD`.
-- `temperature`: Среднесуточная температура (в °C).
-- `season`: Сезон года (зима, весна, лето, осень).
+## Data Used
 
-## Технологии и инструменты
-- **Язык программирования:** Python
-- **Библиотеки:** Pandas, NumPy, Matplotlib, Plotly, Streamlit, aiohttp, requests, scikit-learn
-- **Параллельная обработка:** `multiprocessing`, `concurrent.futures`
-- **API:** OpenWeatherMap
-- **Деплой:** Streamlit Cloud
+The historical temperature data is stored in the `temperature_data.csv` file and includes the following columns:
+- `city`: Name of the city.
+- `timestamp`: Date in `YYYY-MM-DD` format.
+- `temperature`: Daily average temperature (in °C).
+- `season`: Season of the year (`winter`, `spring`, `summer`, `autumn`).
 
-## Результаты
-- Проанализированы исторические данные о температуре для выявления аномалий и сезонных закономерностей.
-- Разработано интерактивное веб-приложение для визуализации данных и мониторинга текущей температуры.
-- Проведён сравнительный анализ подходов синхронного и асинхронного выполнения запросов, выбраны оптимальные решения.
-- Решение успешно развернуто на платформе Streamlit Cloud.
+## Technologies and Tools
 
-## Получение OpenWeatherMap API
-1. Перейти на https://openweathermap.org/
-2. Создать аккаунт
-3. Найти API KEY в My API keys
+- **Programming Language:** Python  
+- **Libraries:** Pandas, NumPy, Matplotlib, Plotly, Streamlit, aiohttp, requests, scikit-learn  
+- **Parallel Processing:** `multiprocessing`, `concurrent.futures`  
+- **API:** OpenWeatherMap  
+- **Deployment:** Streamlit Cloud
+
+## Results
+
+- Historical temperature data was analyzed to detect anomalies and seasonal patterns.
+- An interactive web application was developed for visualization and real-time temperature monitoring.
+- A comparative analysis of synchronous vs asynchronous API request handling was performed.
+- The solution was successfully deployed to the Streamlit Cloud platform.
+
+## How to Get OpenWeatherMap API Key
+
+1. Go to https://openweathermap.org/  
+2. Create an account  
+3. Find your API KEY under "My API keys"
