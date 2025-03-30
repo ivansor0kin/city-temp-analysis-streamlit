@@ -6,7 +6,7 @@
 
 ### Доступ
 
-Доступен по ссылке https://city-temp-analysis-service.streamlit.app/.
+Приложение доступно по ссылке https://city-temp-analysis-service.streamlit.app/.
 
 ## Выполненные задачи
 
