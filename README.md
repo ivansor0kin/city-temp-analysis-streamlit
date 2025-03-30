@@ -1,8 +1,10 @@
-# City Temperature Analysis Streamlit (file content is currently in Russian)
+# City Temperature Analysis Streamlit
 
 ## Description
 
 A solution for analyzing historical temperature data and monitoring the current temperature in selected cities using the OpenWeatherMap API. The project includes basic time series analysis, anomaly detection, seasonal profiling, and the development of an interactive web application.
+
+File content is currently in Russian, but is going to be fully translated to English.
 
 ### Access
 
